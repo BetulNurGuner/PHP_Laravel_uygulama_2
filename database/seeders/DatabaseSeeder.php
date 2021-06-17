@@ -14,5 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $this->call(
+            [
+                UserSeed::class,
+                //Birden fazla seed varsa onlar da buraya eklenmeli.
+            ]);
     }
 }
