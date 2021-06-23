@@ -40,7 +40,14 @@ class App extends Controller
         //print_r($kisi);
 
         //Post::insert(['title'=>"Yapay Zeka", 'user'=>8, 'see'=>0,'description'=>"aabafjdajgajfgjklfanfla"]);
-        Post::where('id',1)->update(['see'=>1]);
+        //Post::where('id',1)->update(['see'=>1]);
+
+
+        $paylasim=Post::find(1); //1 id li paylaşımı çeker Posts tablosundan
+        //print_r($paylasim);
+        //echo $paylasim->title;
+        //echo $paylasim->getUser->name;
+        echo $paylasim->title. '- Paylasim Sahibi: '.$paylasim->getUser->name. ' '.$paylasim->getUser->surname;
     }
 
     //web.php de alıyorum id bilgisini
