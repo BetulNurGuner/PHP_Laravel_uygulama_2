@@ -16,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
 
 
-Route::get('/anasayfa','App\Http\Controllers\App@index');
-Route::get('/uye/{id}','App\Http\Controllers\App@uye');
+Route::get('/anasayfa/{dil}','App\Http\Controllers\Appe@index');
+Route::get('/uye/{id}','App\Http\Controllers\Appe@uye');
 //localhost:8000/uye/4 ile 4 nolu id deki uyeye ulastım

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+          <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -17,6 +17,9 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+            }
+            .content{
+                color:#f7fafc;
             }
         </style>
     </head>
@@ -35,6 +38,19 @@
                     @endauth
                 </div>
             @endif
+
+            <div class="content">
+                <select>
+                    <option @if(App::isLocale('tr')) selected @endif>Türkçe</option>
+                    <option @if(App::isLocale('en')) selected @endif>İngilizce</option>
+                    <option @if(App::isLocale('fr')) selected @endif>Fransızca</option>
+                </select>
+                <div class="title m-b-md"  >
+                    @lang('anasayfa.hosgeldin')
+                    <!-- Burası çoklu dil işlemleri. config app.php de locale kısmına göre değişit tr,en,fr olarak --> 
+                </div>
+
+            </div>
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">

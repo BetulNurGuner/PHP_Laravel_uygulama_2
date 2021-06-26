@@ -8,13 +8,14 @@ use Illuminate\Http\Request;
 use App\Models\Uyeler;
 use App\Models\Post;
 //use DB;
+use App;
 
 
-class App extends Controller
+class Appe extends Controller
 {
 
-    public function index()
-    {
+    //public function index()
+    //{
         //$users=User::all();
         //print_r($users);
         
@@ -54,6 +55,7 @@ class App extends Controller
         //$uye=Uyeler::find(8);
         //print_r($uye->getPosts);
     
+        /*
         $uye=Uyeler::find(8);
         echo '8 id li uyenin post sayısı: '.$uye->getPostCount()."<br />";
         echo '8 id li uyenin postları: '."<br />";
@@ -73,8 +75,12 @@ class App extends Controller
             echo $comment->comment.' - Yorumu yapan: ' .$comment->getUser->name. " ".$comment->getUser->surname;
         }
         //print_r($paylasim->getComments);
+        */
+
+        //App::setLocale('en');
+        //return view('welcome');
     
-    }
+    //}
 
     //web.php de alıyorum id bilgisini
     //public function uye($id)
@@ -142,4 +148,9 @@ class App extends Controller
         //orderby dan once where şartları da eklenebilir.
     //}
     
+    public function index($dil)
+    {
+        App::setLocale($dil);
+        return view('welcome');
+    }
 }
