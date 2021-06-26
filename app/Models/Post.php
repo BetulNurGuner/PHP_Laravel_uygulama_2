@@ -19,7 +19,15 @@ class Post extends Model
         //hasOne yani One To One ilişkisi, bir paylaşım bir uye ytarafından yazılmıştır.
         //this yerine Post:: tarzı da kullanıolabilirdi.
 
+        //belongsTo ile tersten bağlanıyor. hasOne daha kullanışlı ama onu kullanıyorum.
 
+    }
+
+    public function getComments()
+    {
+        return $this->hasMany('App\Models\comment','post','id')->where('status',1);
+        //Posta gelen yorumları gösterecek . Ama status 0 olanlar onaylanmamış, 1 olanlar onaylanmış yorum.
+        //Onaylanmış yorumları göstermek istediğim için where sorgusu ekledim sonuna.
     }
 
 }

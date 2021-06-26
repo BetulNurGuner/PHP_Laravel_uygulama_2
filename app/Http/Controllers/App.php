@@ -41,13 +41,39 @@ class App extends Controller
 
         //Post::insert(['title'=>"Yapay Zeka", 'user'=>8, 'see'=>0,'description'=>"aabafjdajgajfgjklfanfla"]);
         //Post::where('id',1)->update(['see'=>1]);
-
-
-        $paylasim=Post::find(1); //1 id li paylaşımı çeker Posts tablosundan
+        //Post::insert(['title'=>"Elektrik", 'user'=>8, 'see'=>0,'description'=>"aabafjdajgaklfanfla"]);
+        //Post::insert(['title'=>"Otonom Sistemler", 'user'=>1, 'see'=>0,'description'=>"aabafjdajklfanfla"]);
+        
+        
+        //$paylasim=Post::find(1); //1 id li paylaşımı çeker Posts tablosundan
         //print_r($paylasim);
         //echo $paylasim->title;
         //echo $paylasim->getUser->name;
-        echo $paylasim->title. '- Paylasim Sahibi: '.$paylasim->getUser->name. ' '.$paylasim->getUser->surname;
+        //echo $paylasim->title. '- Paylasim Sahibi: '.$paylasim->getUser->name. ' '.$paylasim->getUser->surname;
+    
+        //$uye=Uyeler::find(8);
+        //print_r($uye->getPosts);
+    
+        $uye=Uyeler::find(8);
+        echo '8 id li uyenin post sayısı: '.$uye->getPostCount()."<br />";
+        echo '8 id li uyenin postları: '."<br />";
+        foreach(Uyeler::find(8)->getPosts as $post)
+        {
+            echo $post->title."<hr />";
+        }
+
+        echo "Paylaşımlara gelen yorumlar: "."<hr />";
+        $paylasim=Post::find(1);
+        echo $paylasim->title."------>Post: ";
+        echo $paylasim->description."------>Yorum sayısı: ";
+        echo count($paylasim->getComments);
+        echo "<br/>Yorumlar: <br/>";
+        foreach ($paylasim->getComments as $comment)
+        {
+            echo $comment->comment.' - Yorumu yapan: ' .$comment->getUser->name. " ".$comment->getUser->surname;
+        }
+        //print_r($paylasim->getComments);
+    
     }
 
     //web.php de alıyorum id bilgisini

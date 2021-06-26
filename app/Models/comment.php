@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class comment extends Model
 {
     use HasFactory;
+
+    public function getUser()
+    {
+        return $this->hasOne('App\Models\Uyeler','id','user');
+    }
 }
